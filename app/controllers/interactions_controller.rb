@@ -13,6 +13,7 @@ class InteractionsController < ApplicationController
   # GET /interactions/new
   def new
     @interaction = Interaction.new
+    @interaction.lead_id = params[:lead_id] if params[:lead_id].present?
   end
 
   # GET /interactions/1/edit

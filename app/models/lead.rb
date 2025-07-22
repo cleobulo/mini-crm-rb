@@ -1,3 +1,3 @@
 class Lead < ApplicationRecord
-    has_many :lead_tags, dependent: :destroy
+    has_many :interactions, dependent: :destroy
 end

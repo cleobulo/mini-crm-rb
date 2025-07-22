@@ -1,10 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<h2>Interações</h2>
 
-<%= render @lead %>
+<% if @lead.interactions.any? %>
+  <ul>
+    <% @lead.interactions.each do |interaction| %>
+      <li><strong><%= interaction.created_at.strftime("%d/%m/%Y %H:%M") %>:</strong> <%= interaction.content %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Nenhuma interação registrada.</p>
+<% end %>
 
-<div>
-  <%= link_to "Edit this lead", edit_lead_path(@lead) %> |
-  <%= link_to "Back to leads", leads_path %>
-
-  <%= button_to "Destroy this lead", @lead, method: :delete %>
-</div>
+<%= link_to "Nova Interação", new_interaction_path(lead_id: @lead.id) %>
