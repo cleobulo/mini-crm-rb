@@ -1,0 +1,27 @@
+<%= form_with(model: interaction) do |form| %>
+  <% if interaction.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(interaction.errors.count, "error") %> prohibited this interaction from being saved:</h2>
+
+      <ul>
+        <% interaction.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :lead_id, style: "display: block" %>
+    <%= form.text_field :lead_id %>
+  </div>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.textarea :content %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
