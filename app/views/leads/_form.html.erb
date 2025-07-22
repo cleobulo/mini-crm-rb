@@ -39,4 +39,20 @@
   <div>
     <%= form.submit %>
   </div>
+
+  <h3>Interações</h3>
+
+  <div id="interactions">
+    <%= form.fields_for :interactions do |interaction_form| %>
+      <div class="nested-fields">
+        <%= interaction_form.label :content %><br>
+        <%= interaction_form.text_area :content, rows: 2 %>
+        <%= interaction_form.check_box :_destroy %>
+        <%= interaction_form.label :_destroy, "Remover" %>
+      </div>
+    <% end %>
+  </div>
+
+  <p>Para adicionar interações, crie na página <%= link_to "Interações", interactions_path %>.</p>
+
 <% end %>
